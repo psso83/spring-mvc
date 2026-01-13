@@ -26,5 +26,10 @@ public class HelloViewController {
         //surfix로 .html 처럼 정적 페이지 확장자가 자동으로 붙는다.
     }
 
-   
+    @GetMapping("html/dynamic")
+    public String htmlDynamic(Model model) {
+        visitcount++;
+        model.addAttribute("visits", visitcount);
+        return "hello-dynamic";
+    }
 }
