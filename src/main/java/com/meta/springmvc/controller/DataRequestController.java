@@ -35,5 +35,15 @@ public class DataRequestController {
     public String helloRequestModel(Star star) {
         return String.format("Hello, @ModelAttribute(보통생략) 받은 값들, <br> name = %s, age = %d", star.getName(), star.getAge());
     }
+    @PostMapping("form/param/model")
+    @ResponseBody
+    public String helloRequestModelGet(Star star) {
+        return String.format("Hello, @ModelAttribute(보통생략) 받은 값들, <br> name = %s, age = %d", star.getName(), star.getAge());
+    }
 
+    @PostMapping("form/json")
+    @ResponseBody
+    public String helloRequestModelJsonPost(@RequestBody Star star) {
+        return String.format("Hello, @RequestBody로 받은 Json데이터를 객체로 받기, <br> name = %s, age = %d", star.getName(), star.getAge());
+    }
 }
