@@ -1,5 +1,6 @@
 package com.meta.springmvc.controller;
 
+import com.meta.springmvc.entity.Star;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,4 +29,11 @@ public class DataRequestController {
     public String helloRequestParamPost(@RequestParam String name, @RequestParam int age) {
         return String.format("Hello, @RequestParam으로 받은 값들, <br> name = %s, age = %d", name, age);
     }
+
+    @PostMapping("form/model")
+    @ResponseBody
+    public String helloRequestModel(Star star) {
+        return String.format("Hello, @ModelAttribute(보통생략) 받은 값들, <br> name = %s, age = %d", star.getName(), star.getAge());
+    }
+
 }
